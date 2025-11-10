@@ -6,7 +6,7 @@
  */
 
 // Backend API URL - update this for production
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://edu-bridge-ai-project-3.onrender.com' ;
 
 /**
  * Initialize IntaSend payment for Teacher Pro ($2/month ≈ 270 KES)
