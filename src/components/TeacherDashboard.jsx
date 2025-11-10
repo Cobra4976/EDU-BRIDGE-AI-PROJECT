@@ -458,7 +458,7 @@ Please provide comprehensive guidance considering:
 - Context: ${contextDescription}`;
 
     try {
-      const response = await fetch('https://edu-bridge-ai-project-1.onrender.com/api/claude', {
+      const response = await fetch('https://edu-bridge-ai-project-3.onrender.com/api/claude', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ systemPrompt, userPrompt, maxTokens: 4096 })
@@ -513,101 +513,6 @@ Please provide comprehensive guidance considering:
 
 
 
-//   const generateAIResponse = async (prompt, contextType) => {
-//     if (!prompt || !prompt.trim()) {
-//       alert("Please enter a question or request.");
-//       return;
-//     }
-
-//     if (!CLAUDE_API_KEY) {
-//       setAiResponse("⚠️ Error: Claude API key not found. Please add VITE_CLAUDE_API_KEY to your .env file.");
-//       return;
-//     }
-
-//     setAiLoading(true);
-//     setAiResponse("");
-
-//     const curriculumDetails = curriculumKnowledge[teacherProfile.educationalSystem] || {};
-//     const contextDescription = tabContexts[contextType] || "";
-
-//     const systemPrompt = `You are EduBridge AI — an expert teaching assistant built to empower African educators and support SDG 4 (Quality Education).
-
-// TEACHER PROFILE:
-// - Name: ${teacherProfile.name}
-// - Country: ${teacherProfile.country}
-// - Educational System: ${teacherProfile.educationalSystem}
-// - Subject Area: ${teacherProfile.subjectArea}
-// - Grade Level: ${teacherProfile.gradeLevel}
-
-// CURRICULUM CONTEXT FOR ${teacherProfile.educationalSystem}:
-// - Structure: ${curriculumDetails.structure || "Standard curriculum"}
-// - Key Features: ${curriculumDetails.keyFeatures?.join("; ") || "Standard features"}
-// - Assessment Types: ${curriculumDetails.assessmentTypes?.join(", ") || "Various assessments"}
-// - Grade Structure: ${curriculumDetails.gradeStructure || "Standard grades"}
-
-// CURRENT TASK CONTEXT: ${contextDescription}
-
-// IMPORTANT GUIDELINES:
-// 1. Provide SPECIFIC, ACTIONABLE advice tailored to ${teacherProfile.country}'s educational context
-// 2. Use locally relevant examples (e.g., market mathematics, agricultural scenarios, local landmarks)
-// 3. Consider resource limitations common in African schools (large class sizes 40-60 students, limited technology)
-// 4. Suggest low-tech alternatives and creative solutions using available materials
-// 5. Incorporate culturally appropriate teaching methods (storytelling, oral traditions, communal learning)
-// 6. Align all suggestions with the ${teacherProfile.educationalSystem} curriculum requirements
-// 7. Address multilingual classroom challenges when relevant
-// 8. Provide practical strategies that work with minimal resources
-// 9. Include assessment methods appropriate to the curriculum system
-// 10. Consider parent/community involvement strategies common in African contexts
-
-// Your responses should be detailed, practical, and immediately implementable by the teacher.`;
-
-//     const userPrompt = `${prompt}
-
-// Please provide comprehensive guidance considering:
-// - I teach ${teacherProfile.subjectArea} to ${teacherProfile.gradeLevel} students
-// - My school follows the ${teacherProfile.educationalSystem}
-// - I'm in ${teacherProfile.country}
-// - Context: ${contextDescription}`;
-
-//     try {
-//       const response = await fetch('http://localhost:3001/api/claude', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({ systemPrompt, userPrompt, maxTokens: 4096 })
-//       });
-
-//       if (!response.ok) {
-//         const errData = await response.json().catch(() => ({}));
-//         throw new Error(errData.error?.message || `API Error: ${response.status}`);
-//       }
-
-//       const data = await response.json();
-//       const aiMessage = data.content?.[0]?.text || data.response || data.message || "No response received from Claude.";
-//       setAiResponse(aiMessage);
-
-//       // Cache the response for offline access
-//       const cacheKey = `${contextType}-${Date.now()}`;
-//       const cacheData = {
-//         prompt: prompt,
-//         response: aiMessage,
-//         context: contextType,
-//         profile: {
-//           country: teacherProfile.country,
-//           system: teacherProfile.educationalSystem,
-//           subject: teacherProfile.subjectArea,
-//           grade: teacherProfile.gradeLevel
-//         }
-//       };
-      
-//       cacheAIResponse(cacheKey, cacheData);
-      
-//     } catch (err) {
-//       console.error("Claude API Error:", err);
-//       setAiResponse(`⚠️ Error: ${err.message}\n\n📌 CORS NOTE: Call Claude via your backend proxy (e.g. POST /api/claude).`);
-//     } finally {
-//       setAiLoading(false);
-//     }
-//   };
 // Load query check when accessing AI tabs
   useEffect(() => {
     if (['ai-assistant', 'student-progress', 'assignments'].includes(activeTab)) {
@@ -627,19 +532,6 @@ useEffect(() => {
   }
 }, [activeTab, teacherProfile.schoolRole, teacherProfile.schoolId]); // ✅ Watch these specific fields
 
-//  useEffect(() => {
-//   if (activeTab === 'school-management' && 
-//       teacherProfile.schoolRole === 'admin' && 
-//       teacherProfile.schoolId) {
-//     loadSchoolData();
-//   }
-// }, [activeTab, teacherProfile]); 
-// useEffect(() => {
-//   if (activeTab === 'school-management' && teacherProfile.schoolId) {
-//     loadSchoolData();
-//   }
-// }, [activeTab, teacherProfile]);
-// Add these functions before the return statement
 
 const loadSchoolData = async () => {
   console.log('🔍 Loading school data...');
@@ -696,29 +588,6 @@ const loadSchoolData = async () => {
   }
 };
 
-// const loadSchoolData = async () => {
-//   setIsLoadingSchool(true);
-//   try {
-//     const result = await getSchoolDetails(teacherProfile.schoolId, user.uid);
-    
-//     if (result.success) {
-//       setSchoolData(result.school);
-//       setSchoolTeachers(result.teachers);
-      
-//       // Also load stats
-//       const statsResult = await getSchoolStats(teacherProfile.schoolId);
-//       if (statsResult.success) {
-//         setSchoolStats(statsResult.stats);
-//       }
-//     } else {
-//       alert('Failed to load school data: ' + result.error);
-//     }
-//   } catch (error) {
-//     console.error('Error loading school:', error);
-//   } finally {
-//     setIsLoadingSchool(false);
-//   }
-// };
 
 const handleGenerateInvite = async () => {
   setIsGeneratingInvite(true);

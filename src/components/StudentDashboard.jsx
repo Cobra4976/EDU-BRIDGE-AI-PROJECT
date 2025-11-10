@@ -486,7 +486,7 @@ const checkFeatureLimit = async (featureType, featureName) => {
 
   try {
     // Call backend API
-    const response = await fetch('https://edu-bridge-ai-project-1.onrender.com/api/student/generate-tasks', {
+    const response = await fetch('https://edu-bridge-ai-project-3.onrender.com/api/student/generate-tasks', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -553,7 +553,7 @@ const analyzeSkills = async () => {
 
   try {
     // Call backend API
-    const response = await fetch('https://edu-bridge-ai-project-1.onrender.com/api/student/analyze-skills', {
+    const response = await fetch('https://edu-bridge-ai-project-3.onrender.com/api/student/analyze-skills', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -618,7 +618,7 @@ const analyzeSkills = async () => {
 
   try {
     // Call backend API
-    const response = await fetch('https://edu-bridge-ai-project-1.onrender.com/api/student/generate-achievements', {
+    const response = await fetch('https://edu-bridge-ai-project-3.onrender.com/api/student/generate-achievements', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -697,7 +697,7 @@ const generateSkillLearningPath = async (skillName, currentScore, category) => {
 
   try {
     // Call backend API
-    const response = await fetch('https://edu-bridge-ai-project-1.onrender.com/api/student/generate-learning-path', {
+    const response = await fetch('https://edu-bridge-ai-project-3.onrender.com/api/student/generate-learning-path', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -835,7 +835,7 @@ Ask me anything! 🚀`
 
   try {
     // Call backend API
-    const response = await fetch('https://edu-bridge-ai-project-1.onrender.com/api/student/tutor-chat', {
+    const response = await fetch('https://edu-bridge-ai-project-3.onrender.com/api/student/tutor-chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -1074,7 +1074,7 @@ const generateSkillRecommendations = async () => {
   
   try {
     // Call backend API
-    const response = await fetch('https://edu-bridge-ai-project-1.onrender.com/api/student/skill-recommendations', {
+    const response = await fetch('https://edu-bridge-ai-project-3.onrender.com/api/student/skill-recommendations', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
