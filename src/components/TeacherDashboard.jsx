@@ -458,7 +458,7 @@ Please provide comprehensive guidance considering:
 - Context: ${contextDescription}`;
 
     try {
-      const response = await fetch('http://localhost:3001/api/claude', {
+      const response = await fetch('https://edu-bridge-ai-project-1.onrender.com/api/claude', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ systemPrompt, userPrompt, maxTokens: 4096 })
