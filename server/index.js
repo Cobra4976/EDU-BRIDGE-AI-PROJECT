@@ -27,7 +27,7 @@ console.log('🔑 M-Pesa Consumer Secret loaded:', process.env.MPESA_CONSUMER_SE
 console.log('🔑 M-Pesa Passkey loaded:', process.env.MPESA_PASSKEY ? 'YES ✅' : 'NO ❌');
 console.log('🔑 M-Pesa Shortcode:', process.env.MPESA_SHORTCODE || 'NOT SET ❌');
 const app = express();
-const PORT = 'https://edu-bridge-ai-project-3.onrender.com';
+const PORT = 3001;
 
 app.use(cors());
 app.use(express.json());
