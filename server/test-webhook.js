@@ -1,7 +1,7 @@
 // test-webhook.js - Run this to simulate IntaSend webhooks
 import axios from 'axios';
 
-const BACKEND_URL = 'http://localhost:3001';
+const VITE_BACKEND_URL = 'https://edu-bridge-ai-project-3.onrender.com';
 
 // ✅ Test 1: Simulate successful payment webhook
 async function testSuccessfulPayment(userId) {
@@ -172,7 +172,7 @@ async function runAllTests() {
 
   console.log('🚀 Starting Webhook Tests...');
   console.log(`📝 Testing with user ID: ${TEST_USER_ID}`);
-  console.log('⚠️  Make sure your backend is running on http://localhost:3001\n');
+  console.log('⚠️  Make sure your backend is running on https://edu-bridge-ai-project-3.onrender.com\n');
 
   // Run tests in sequence
   await checkSubscriptionStatus(TEST_USER_ID);
