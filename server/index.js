@@ -429,7 +429,7 @@ app.post('/api/create-payment', async (req, res) => {
         first_name: (firstName || 'User').replace(/[^a-zA-Z0-9\s_-]/g, ''),
         last_name: (lastName || 'Name').replace(/[^a-zA-Z0-9\s_-]/g, ''),
         api_ref: apiRef,
-        redirect_url: `${req.headers.origin || 'http://localhost:5173'}/payment-success`,
+        redirect_url: `${req.headers.origin || 'https://edu-bridge-ai-project-3.onrender.com'}/payment-success`,
         // Don't specify method - users get all payment options
         comment: comment || 'Payment'
       },
@@ -1346,7 +1346,7 @@ Prioritize practical, achievable skills. Return only JSON.`;
 
 
 app.listen(PORT, () => {
-  console.log(`🚀 Backend server running on http://localhost:${PORT}`);
+  console.log(`🚀 Backend server running on 'https://edu-bridge-ai-project-3.onrender.com':${PORT}`);
   console.log(`💳 IntaSend integration: ${INTASEND_PUBLISHABLE_KEY ? 'ACTIVE ✅' : 'NOT CONFIGURED ❌'}`);
   console.log(`🌍 Using IntaSend ${INTASEND_PUBLISHABLE_KEY?.includes('_test_') ? 'SANDBOX (Test Mode)' : 'PRODUCTION (Live Mode)'}`);
   console.log(`🔗 API URL: ${INTASEND_API_URL}`);
@@ -1440,7 +1440,7 @@ app.post('/api/school/generate-invite', async (req, res) => {
 
     console.log(`✅ Generated invite code for school ${teacherData.schoolId}`);
 
-    const inviteLink = `${req.headers.origin || 'http://localhost:5173'}/join-school?code=${inviteCode}`;
+    const inviteLink = `${req.headers.origin ||'https://edu-bridge-ai-project-3.onrender.com'}/join-school?code=${inviteCode}`;
 
     res.json({
       success: true,
