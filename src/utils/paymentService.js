@@ -7,7 +7,7 @@ export const paymentService = {
    */
   async initiateMpesaPayment(phoneNumber, amount, userId, subscriptionTier = 'premium') {
     try {
-      const response = await fetch(`${VITE_BACKEND_URL}/api/payment/mpesa/initiate`, {
+      const response = await fetch(`${API_BASE_URL}/api/payment/mpesa/initiate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ export const paymentService = {
    */
   async checkPaymentStatus(transactionId) {
     try {
-      const response = await fetch(`${VITE_BACKEND_URL}/api/payment/mpesa/status/${transactionId}`);
+      const response = await fetch(`${API_BASE_URL}/api/payment/mpesa/status/${transactionId}`);
       const data = await response.json();
 
       if (!response.ok) {

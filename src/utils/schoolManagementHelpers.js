@@ -7,7 +7,7 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://edu-bridge-ai-p
  */
 export async function generateInviteCode(adminUserId) {
   try {
-    const response = await fetch(`${VITE_BACKEND_URL}/api/school/generate-invite`, {
+    const response = await fetch(`${BACKEND_URL}/api/school/generate-invite`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ adminUserId })
@@ -30,7 +30,7 @@ export async function generateInviteCode(adminUserId) {
  */
 export async function acceptSchoolInvite(inviteCode, teacherUserId) {
   try {
-    const response = await fetch(`${VITE_BACKEND_URL}/api/school/accept-invite`, {
+    const response = await fetch(`${BACKEND_URL}/api/school/accept-invite`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ inviteCode, teacherUserId })
@@ -53,7 +53,7 @@ export async function acceptSchoolInvite(inviteCode, teacherUserId) {
  */
 export async function removeTeacherFromSchool(adminUserId, teacherUserId) {
   try {
-    const response = await fetch(`${VITE_BACKEND_URL}/api/school/remove-teacher`, {
+    const response = await fetch(`${BACKEND_URL}/api/school/remove-teacher`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ adminUserId, teacherUserId })
@@ -97,7 +97,7 @@ export async function getSchoolDetails(schoolId, adminUserId) {
  */
 export async function getSchoolStats(schoolId) {
   try {
-    const response = await fetch(`${VITE_BACKEND_URL}/api/school/${schoolId}/stats`);
+    const response = await fetch(`${BACKEND_URL}/api/school/${schoolId}/stats`);
 
     if (!response.ok) {
       const error = await response.json();
