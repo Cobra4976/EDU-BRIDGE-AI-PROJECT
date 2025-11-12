@@ -8,7 +8,13 @@ export default defineConfig({
       input: {
         main: './index.html',
         sw: './public/service-worker.js'
-      }
+      },
+      // add hashed file naming for better caching
+      output: {
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+      },
     }
   }
 })
